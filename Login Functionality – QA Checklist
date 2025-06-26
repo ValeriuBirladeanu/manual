@@ -10,85 +10,54 @@
 | TC-006       | Reject email with consecutive dots | email..email@example.com      | Repeat steps from TC-001                                   | Shows "Invalid email" message    |        | Consecutive dots invalid              |
 | TC-007       | Accept email with plus sign        | firstname+lastname@example.com| Repeat steps from TC-001                                   | Email accepted without errors    |        |                                       |
 
+TC-001 Accept valid simple email
+    Input Email: email@example.com
+    Pași de test:
+        Open registration page
+        Enter email in Email field
+        Move focus or click Submit
+    Expected Result: Email accepted without errors
+    Status:
+    Notes:
 
+TC-002 Accept email with dot and lastname
+    Input Email: firstname.lastname@example.com
+    Pași de test: Repeat steps from TC-001
+    Expected Result: Same as TC-001
+    Status:
+    Notes:
 
-# Teste validare câmp Email
+TC-003 Reject email without domain
+    Input Email: plainaddress
+    Pași de test: Repeat steps from TC-001
+    Expected Result: Shows "Invalid email" message
+    Status:
+    Notes: Invalid format, missing domain
 
----
+TC-004 Reject email with spaces and invalid chars
+    Input Email: Joe Smith <email@example.com>
+    Pași de test: Repeat steps from TC-001
+    Expected Result: Shows "Invalid email" message
+    Status:
+    Notes: Spaces and angle brackets not allowed
 
-## TC-001 Accept valid simple email
+TC-005 Accept email with subdomain
+    Input Email: email@subdomain.example.com
+    Pași de test: Repeat steps from TC-001
+    Expected Result: Email accepted without errors
+    Status:
+    Notes:
 
-- **Input Email:** `email@example.com`  
-- **Pași de test:**  
-  1. Deschide pagina cu formularul de înregistrare  
-  2. Introdu emailul în câmpul Email  
-  3. Mută focusul sau apasă butonul Submit  
-- **Rezultat așteptat:** Email acceptat fără mesaj de eroare  
-- **Status:**  
-- **Observații:**  
+TC-006 Reject email with consecutive dots
+    Input Email: email..email@example.com
+    Pași de test: Repeat steps from TC-001
+    Expected Result: Shows "Invalid email" message
+    Status:
+    Notes: Consecutive dots invalid
 
----
-
-## TC-002 Accept email with dot and lastname
-
-- **Input Email:** `firstname.lastname@example.com`  
-- **Pași de test:**  
-  Repetă pașii din TC-001  
-- **Rezultat așteptat:** La fel ca TC-001  
-- **Status:**  
-- **Observații:**  
-
----
-
-## TC-003 Reject email without domain
-
-- **Input Email:** `plainaddress`  
-- **Pași de test:**  
-  Repetă pașii din TC-001  
-- **Rezultat așteptat:** Afișează mesajul „Invalid email”  
-- **Status:**  
-- **Observații:** Format invalid, lipsește domeniul  
-
----
-
-## TC-004 Reject email with spaces and invalid chars
-
-- **Input Email:** `Joe Smith <email@example.com>`  
-- **Pași de test:**  
-  Repetă pașii din TC-001  
-- **Rezultat așteptat:** Afișează mesajul „Invalid email”  
-- **Status:**  
-- **Observații:** Spații și caractere speciale interzise  
-
----
-
-## TC-005 Accept email with subdomain
-
-- **Input Email:** `email@subdomain.example.com`  
-- **Pași de test:**  
-  Repetă pașii din TC-001  
-- **Rezultat așteptat:** Email acceptat fără mesaj de eroare  
-- **Status:**  
-- **Observații:**  
-
----
-
-## TC-006 Reject email with consecutive dots
-
-- **Input Email:** `email..email@example.com`  
-- **Pași de test:**  
-  Repetă pașii din TC-001  
-- **Rezultat așteptat:** Afișează mesajul „Invalid email”  
-- **Status:**  
-- **Observații:** Două puncte consecutive nu sunt permise  
-
----
-
-## TC-007 Accept email with plus sign
-
-- **Input Email:** `firstname+lastname@example.com`  
-- **Pași de test:**  
-  Repetă pașii din TC-001  
-- **Rezultat așteptat:** Email acceptat fără mesaj de eroare  
-- **Status:**  
-- **Observații:**  
+TC-007 Accept email with plus sign
+    Input Email: firstname+lastname@example.com
+    Pași de test: Repeat steps from TC-001
+    Expected Result: Email accepted without errors
+    Status:
+    Notes:
