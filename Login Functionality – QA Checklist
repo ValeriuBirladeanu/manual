@@ -1,0 +1,89 @@
+# Login Functionality – QA Checklist
+
+----
+
+## Informatii generale
+- URL: /login
+- Roluri implicate: utilizator neautentificat
+- Date de test:
+  - Email valid: fytaryqe@mailinator.com
+  - Phone valid: '6965882', '06965882', '3736965882', '+3736965882','-3736965882'
+  - Parola validă: Pa$$w0rd11
+
+----
+
+## Scenarii pozitive
+
+- [ ] Pagina se încarcă (status 200, componente vizibile)
+- [ ] Email + parolă valide → autentificare reușită și redirect către /myaccount
+- [ ] După login, utilizatorul vede numele său în myaccount
+- [ ] Cookie sau token JWT este salvat corect (verificat în DevTools)
+- [ ] Butonul Login devine inactiv în timpul trimiterii formularului
+
+----
+
+## Scenarii negative
+
+- [ ] Email invalid (ex: test@) → afișare mesaj: "Email invalid"
+- [ ] Email necunoscut → afișare mesaj: "Cont inexistent"
+- [ ] Parolă incorectă → afișare mesaj: "Credentiale incorecte"
+- [ ] Câmpuri goale → validare front-end activă cu mesaj: "Câmp obligatoriu"
+- [ ] Răspuns 500 server → afișare fallback sau mesaj de eroare general
+
+----
+
+## Validări tehnice
+
+- [ ] Request POST /api/auth/login conține payload corect (email + parola)
+- [ ] Răspunsul conține token JWT sau cookie valid
+- [ ] Nu există erori JavaScript în consola browserului la trimiterea formularului
+
+----
+
+## Browsere testate
+
+- [ ] Chrome (desktop)
+- [ ] Firefox (desktop)
+- [ ] Edge (desktop)
+- [ ] Safari (opțional, dacă se cere)
+- [ ] Mobile Chrome (responsive / DevTools emulation)
+- [ ] Mobile Safari (iPhone real sau emulat, dacă e în scope)
+
+----
+
+## Limbi verificate
+
+- [ ] EN – toate textele corecte
+- [ ] RO – traduceri complete, diacritice corecte
+- [ ] RU – traduceri complete, caractere afișate corect
+- [ ] Verificat schimbarea limbii înainte și după login
+
+clci p e a da  
+
+----
+
+## Funcționalități suplimentare
+
+- [ ] Submit funcționează și la apăsarea tastei Enter în câmpuri
+- [ ] Trecerea de la o limbă la alta nu resetează formularul
+- [ ] Mesajele de eroare nu se suprapun sau dispar prea repede
+- [ ] Testat comportamentul când utilizatorul folosește butonul "Back" după login
+
+----
+
+## Pregătire pentru automatizare
+
+- [x] Login valid – stabil, poate fi automatizat
+- [x] Email invalid – poate fi automatizat
+- [ ] Parolă greșită – mesajul are comportament inconsistent, se amână
+- [ ] Submit cu Enter – se testează manual până se stabilește comportamentul
+- [ ] Server 500 – testabil doar cu mock / interceptare de request
+
+----
+
+## Observații
+
+- Comportamentul de bază este stabil în 3 build-uri consecutive
+- Partea de validare client-side funcționează corect
+- Unele mesaje de eroare au durată de afișare prea scurtă (UX)
+- Se poate începe automatizarea pentru cazurile pozitive și câteva negative
