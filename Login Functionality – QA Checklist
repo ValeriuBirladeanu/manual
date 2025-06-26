@@ -1,89 +1,94 @@
-# Login Functionality – QA Checklist
+| Test Case ID | Description                        | Input Email                   | Steps to Test                                              | Expected Result                  | Status | Notes                                 |
+|--------------|------------------------------------|-------------------------------|------------------------------------------------------------|----------------------------------|--------|---------------------------------------|
+| TC-001       | Accept valid simple email          | email@example.com             | 1. Open registration page                                  | Email accepted without errors    |        |                                       |
+|              |                                    |                               | 2. Enter email in Email field                              |                                  |        |                                       |
+|              |                                    |                               | 3. Move focus or click Submit                              |                                  |        |                                       |
+| TC-002       | Accept email with dot and lastname | firstname.lastname@example.com| Repeat steps from TC-001                                   | Same as TC-001                   |        |                                       |
+| TC-003       | Reject email without domain        | plainaddress                  | Repeat steps from TC-001                                   | Shows "Invalid email" message    |        | Invalid format, missing domain        |
+| TC-004       | Reject email with spaces and invalid chars | Joe Smith <email@example.com> | Repeat steps from TC-001                           | Shows "Invalid email" message    |        | Spaces and angle brackets not allowed |
+| TC-005       | Accept email with subdomain        | email@subdomain.example.com   | Repeat steps from TC-001                                   | Email accepted without errors    |        |                                       |
+| TC-006       | Reject email with consecutive dots | email..email@example.com      | Repeat steps from TC-001                                   | Shows "Invalid email" message    |        | Consecutive dots invalid              |
+| TC-007       | Accept email with plus sign        | firstname+lastname@example.com| Repeat steps from TC-001                                   | Email accepted without errors    |        |                                       |
 
-----
 
-## Informatii generale
-- URL: /login
-- Roluri implicate: utilizator neautentificat
-- Date de test:
-  - Email valid: fytaryqe@mailinator.com
-  - Phone valid: '6965882', '06965882', '3736965882', '+3736965882','-3736965882'
-  - Parola validă: Pa$$w0rd11
 
-----
+# Teste validare câmp Email
 
-## Scenarii pozitive
+---
 
-- [ ] Pagina se încarcă (status 200, componente vizibile)
-- [ ] Email + parolă valide → autentificare reușită și redirect către /myaccount
-- [ ] După login, utilizatorul vede numele său în myaccount
-- [ ] Cookie sau token JWT este salvat corect (verificat în DevTools)
-- [ ] Butonul Login devine inactiv în timpul trimiterii formularului
+## TC-001 Accept valid simple email
 
-----
+- **Input Email:** `email@example.com`  
+- **Pași de test:**  
+  1. Deschide pagina cu formularul de înregistrare  
+  2. Introdu emailul în câmpul Email  
+  3. Mută focusul sau apasă butonul Submit  
+- **Rezultat așteptat:** Email acceptat fără mesaj de eroare  
+- **Status:**  
+- **Observații:**  
 
-## Scenarii negative
+---
 
-- [ ] Email invalid (ex: test@) → afișare mesaj: "Email invalid"
-- [ ] Email necunoscut → afișare mesaj: "Cont inexistent"
-- [ ] Parolă incorectă → afișare mesaj: "Credentiale incorecte"
-- [ ] Câmpuri goale → validare front-end activă cu mesaj: "Câmp obligatoriu"
-- [ ] Răspuns 500 server → afișare fallback sau mesaj de eroare general
+## TC-002 Accept email with dot and lastname
 
-----
+- **Input Email:** `firstname.lastname@example.com`  
+- **Pași de test:**  
+  Repetă pașii din TC-001  
+- **Rezultat așteptat:** La fel ca TC-001  
+- **Status:**  
+- **Observații:**  
 
-## Validări tehnice
+---
 
-- [ ] Request POST /api/auth/login conține payload corect (email + parola)
-- [ ] Răspunsul conține token JWT sau cookie valid
-- [ ] Nu există erori JavaScript în consola browserului la trimiterea formularului
+## TC-003 Reject email without domain
 
-----
+- **Input Email:** `plainaddress`  
+- **Pași de test:**  
+  Repetă pașii din TC-001  
+- **Rezultat așteptat:** Afișează mesajul „Invalid email”  
+- **Status:**  
+- **Observații:** Format invalid, lipsește domeniul  
 
-## Browsere testate
+---
 
-- [ ] Chrome (desktop)
-- [ ] Firefox (desktop)
-- [ ] Edge (desktop)
-- [ ] Safari (opțional, dacă se cere)
-- [ ] Mobile Chrome (responsive / DevTools emulation)
-- [ ] Mobile Safari (iPhone real sau emulat, dacă e în scope)
+## TC-004 Reject email with spaces and invalid chars
 
-----
+- **Input Email:** `Joe Smith <email@example.com>`  
+- **Pași de test:**  
+  Repetă pașii din TC-001  
+- **Rezultat așteptat:** Afișează mesajul „Invalid email”  
+- **Status:**  
+- **Observații:** Spații și caractere speciale interzise  
 
-## Limbi verificate
+---
 
-- [ ] EN – toate textele corecte
-- [ ] RO – traduceri complete, diacritice corecte
-- [ ] RU – traduceri complete, caractere afișate corect
-- [ ] Verificat schimbarea limbii înainte și după login
+## TC-005 Accept email with subdomain
 
-clci p e a da  
+- **Input Email:** `email@subdomain.example.com`  
+- **Pași de test:**  
+  Repetă pașii din TC-001  
+- **Rezultat așteptat:** Email acceptat fără mesaj de eroare  
+- **Status:**  
+- **Observații:**  
 
-----
+---
 
-## Funcționalități suplimentare
+## TC-006 Reject email with consecutive dots
 
-- [ ] Submit funcționează și la apăsarea tastei Enter în câmpuri
-- [ ] Trecerea de la o limbă la alta nu resetează formularul
-- [ ] Mesajele de eroare nu se suprapun sau dispar prea repede
-- [ ] Testat comportamentul când utilizatorul folosește butonul "Back" după login
+- **Input Email:** `email..email@example.com`  
+- **Pași de test:**  
+  Repetă pașii din TC-001  
+- **Rezultat așteptat:** Afișează mesajul „Invalid email”  
+- **Status:**  
+- **Observații:** Două puncte consecutive nu sunt permise  
 
-----
+---
 
-## Pregătire pentru automatizare
+## TC-007 Accept email with plus sign
 
-- [x] Login valid – stabil, poate fi automatizat
-- [x] Email invalid – poate fi automatizat
-- [ ] Parolă greșită – mesajul are comportament inconsistent, se amână
-- [ ] Submit cu Enter – se testează manual până se stabilește comportamentul
-- [ ] Server 500 – testabil doar cu mock / interceptare de request
-
-----
-
-## Observații
-
-- Comportamentul de bază este stabil în 3 build-uri consecutive
-- Partea de validare client-side funcționează corect
-- Unele mesaje de eroare au durată de afișare prea scurtă (UX)
-- Se poate începe automatizarea pentru cazurile pozitive și câteva negative
+- **Input Email:** `firstname+lastname@example.com`  
+- **Pași de test:**  
+  Repetă pașii din TC-001  
+- **Rezultat așteptat:** Email acceptat fără mesaj de eroare  
+- **Status:**  
+- **Observații:**  
