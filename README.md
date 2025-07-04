@@ -6,22 +6,22 @@ Testele sunt construite folosind **Playwright**, un **framework** modern pentru 
 
 ## Tehnologii Utilizate
 Proiectul este construit folosind următoarele tehnologii și biblioteci cheie:
-* **Node.js**: Mediu de execuție JavaScript.
-* **npm**: Manager de pachete pentru Node.js.
-* **Playwright (`@playwright/test`)**: Cadrul principal pentru automatizarea testelor UI în diferite browsere (Chromium, Firefox).
-* **`@faker-js/faker`**: Pentru generarea de date de test realiste și unice (ex: nume, adrese de email, numere de telefon etc).
-* **`dotenv`**: Pentru gestionarea și încărcarea securizată a variabilelor de mediu din fișierul `.env`.
-* **`mysql2`**: Client robust pentru interacțiunea cu baza de date MySQL.
-* **`redis`**: Utilizat pentru a extrage codurile OTP (One-Time Password) pentru email și SMS, esențial pentru scenariile de verificare. 
-* **Git**: Sistem de control al versiunilor.
-* **Docker**:Utilizat pentru a rula local servicii precum baza de date MySQL, Redis, Nginx și serverele (docker-www, docker-xapi) pentru proiectul supus automatizării.
+- **Node.js** – mediu de execuție JavaScript.
+- **npm** – manager de pachete.
+- **Playwright (`@playwright/test`)** – framework de testare UI.
+- **`@faker-js/faker`** – generare date random (nume, email, etc).
+- **`dotenv`** – gestionare variabile de mediu.
+- **`mysql2`** – interacțiune cu baza de date MySQL.
+- **`redis`** – extragere OTP din loguri (email/SMS).
+- **Git** – sistem de control al versiunilor..
+- **Docker** – pentru rularea serviciilor locale (MySQL, Redis, Nginx, www, xapi) pentru proiectul supus automatizării.
 
 ## Pre-condiții (Prerequisites)
 Pentru a rula acest proiect local, trebuie să ai instalate următoarele:
-* **Node.js**: Versiunea recomandată este `v20.x` (conform `@types/node` ^24.0.8, dar asigură-te că folosești o versiune compatibilă cu `^24.0.8`, ideal ultima LTS).
-* **npm**: Vine la pachet cu instalarea Node.js.
-* **Git**: Pentru a clona depozitul.
-* **Docker**: Necesar pentru a porni și gestiona serviciile locale ale proiectului supus automatizării și dependențele acestuia (MySQL, Redis, server web Nginx, serverele docker-www si docker-xapi).
+* **Node.js**: versiunea recomandată este `v20.x` (conform `@types/node` ^24.0.8, dar asigură-te că folosești o versiune compatibilă cu `^24.0.8`, ideal ultima LTS).
+* **npm**: vine la pachet cu instalarea Node.js.
+* **Git**: pentru a clona depozitul.
+* **Docker**: pentru servicii locale (MySQL, Redis, Nginx, backend etc)
 
 ## Instalare și Configurare
 Urmează acești pași pentru a configura și rula proiectul pe mașina ta locală:
