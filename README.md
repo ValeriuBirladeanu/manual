@@ -1,15 +1,11 @@
-# BPAY.md UI Automation Tests
+# WWW BPAY.md - UI Automation Tests
 
 ## Descriere Generală
-
-Acest proiect conține o suită de teste automate de User Interface (UI) pentru aplicația web [BPAY.md](https://www.bpay.md/). Scopul său principal este de a asigura funcționalitatea corectă a proceselor cheie ale aplicației.
-
+Acest proiect conține o suită de teste automate de User Interface (UI) pentru aplicația web BPAY.md avand scopul său principal de a asigura funcționalitatea corectă a proceselor cheie ale aplicației.
 Testele sunt construite folosind **Playwright**, un **framework** modern pentru automatizarea browserelor, și **limbajul de programare JavaScript**.
 
 ## Tehnologii Utilizate
-
 Proiectul este construit folosind următoarele tehnologii și biblioteci cheie:
-
 * **Node.js**: Mediu de execuție JavaScript.
 * **npm**: Manager de pachete pentru Node.js.
 * **Playwright (`@playwright/test`)**: Cadrul principal pentru automatizarea testelor UI în diferite browsere (Chromium, Firefox).
@@ -21,18 +17,14 @@ Proiectul este construit folosind următoarele tehnologii și biblioteci cheie:
 * * **Docker**:Utilizat pentru a rula local servicii precum baza de date MySQL, Redis, Nginx și serverele (docker-www, docker-xapi) pentru proiectul supus automatizării.
 
 ## Pre-condiții (Prerequisites)
-
 Pentru a rula acest proiect local, trebuie să ai instalate următoarele:
-
 * **Node.js**: Versiunea recomandată este `v20.x` (conform `@types/node` ^24.0.8, dar asigură-te că folosești o versiune compatibilă cu `^24.0.8`, ideal ultima LTS).
 * **npm**: Vine la pachet cu instalarea Node.js.
 * **Git**: Pentru a clona depozitul.
 * **Docker**: Necesar pentru a porni și gestiona serviciile locale ale proiectului supus automatizării și dependențele acestuia (MySQL, Redis, server web Nginx, serverele docker-www si docker-xapi).
 
 ## Instalare și Configurare
-
 Urmează acești pași pentru a configura și rula proiectul pe mașina ta locală:
-
 1.  **Clonează depozitul:**
     ```bash
     git clone [git@git.bpay.md:testing/testing.git] #Folosește link-ul tău SSH
@@ -41,12 +33,10 @@ Urmează acești pași pentru a configura și rula proiectul pe mașina ta local
     
     cd {existing_repo} # Navighează în directorul proiectului
     ```
-
 2.  **Instalează dependențele proiectului:**
     ```bash
     npm install
     ```
-
 3.  **Configurează variabilele de mediu:**
     Creează un fișier numit `.env` în rădăcina proiectului. Acest fișier va conține credențialele bazei de date și alte variabile de configurare esențiale pentru rularea testelor.
    
@@ -59,9 +49,7 @@ Urmează acești pași pentru a configura și rula proiectul pe mașina ta local
     Această comandă va construi și porni containerele definite în `docker/docker-compose.yaml` în fundal. 
 
 ## Rularea Testelor
-
 Poți rula testele folosind scripturile predefinite din `package.json` sau direct comenzile Playwright cu `npx`.
-
 * **Rulează toate testele (mod headless - implicit):**
     ```bash
     npm test
@@ -110,7 +98,6 @@ Poți rula testele folosind scripturile predefinite din `package.json` sau direc
     ```
 
 ## Structura Proiectului
-
 * `tests/`: Acest director conține toate fișierele de testare `.spec.js`. Fiecare fișier `.spec.js` reprezintă, de obicei, o suită de teste pentru o anumită funcționalitate a aplicației.
 * `pages/`: Aici sunt stocate **Page Object Models (POMs)**. Un Page Object este o clasă care reprezintă o pagină (sau un modul/componentă) specifică a aplicației web. Acestea încapsulează selectorii HTML și acțiunile specifice acelei pagini, îmbunătățind semnificativ lizibilitatea, mentenabilitatea și reutilizabilitatea codului de testare.
 * `utils/`: Acest director conține fișiere utilitare (helper functions) și module de suport si funcții generice. 
