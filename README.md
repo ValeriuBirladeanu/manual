@@ -26,13 +26,17 @@ Pentru a rula acest proiect local, trebuie să ai instalate următoarele:
 ## Instalare și Configurare
 Urmează acești pași pentru a configura și rula proiectul pe mașina ta locală:
 1.  **Clonează depozitul:**
-    ```bash
+     ```bash
     git clone git@git.bpay.md:testing/testing.git #Folosește link-ul tău SSH
        sau
     git clone https://git.bpay.md/testing/testing.git   # Folosește link-ul tău HTTPS
-    
+    ```
+    ```bash
     cd testing # Navighează în directorul proiectului
     ```
+    ```bash
+    git pull origin master #(Opțional) Actualizează repo-ul local
+
 2.  **Instalează dependențele proiectului:**
     ```bash
     npm install
