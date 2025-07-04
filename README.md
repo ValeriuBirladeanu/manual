@@ -34,15 +34,16 @@ Urmează acești pași pentru a configura și rula proiectul pe mașina ta local
 
 1.  **Clonează depozitul:**
     ```bash
-    git clone [https://git.bpay.md/testing/testing.git](https://git.bpay.md/testing/testing.git) # Folosește link-ul tău HTTPS sau SSH
-    cd testing # Navighează în directorul proiectului
+    git clone [git@git.bpay.md:testing/testing.git] Folosește link-ul tău SSH
+       sau
+    git clone [https://git.bpay.md/testing/testing.git]   # Folosește link-ul tău HTTPS
+    
+    cd {existing_repo} # Navighează în directorul proiectului
     ```
 
 2.  **Instalează dependențele proiectului:**
     ```bash
     npm install
-    # sau pentru o instalare curată, preferată în CI/CD:
-    # npm ci
     ```
 
 3.  **Configurează variabilele de mediu:**
