@@ -14,7 +14,7 @@ Proiectul este construit folosind următoarele tehnologii și biblioteci cheie:
 * **`mysql2`**: Client robust pentru interacțiunea cu baza de date MySQL.
 * **`redis`**: Utilizat pentru a extrage codurile OTP (One-Time Password) pentru email și SMS, esențial pentru scenariile de verificare. 
 * **Git**: Sistem de control al versiunilor.
-* * **Docker**:Utilizat pentru a rula local servicii precum baza de date MySQL, Redis, Nginx și serverele (docker-www, docker-xapi) pentru proiectul supus automatizării.
+* **Docker**:Utilizat pentru a rula local servicii precum baza de date MySQL, Redis, Nginx și serverele (docker-www, docker-xapi) pentru proiectul supus automatizării.
 
 ## Pre-condiții (Prerequisites)
 Pentru a rula acest proiect local, trebuie să ai instalate următoarele:
@@ -27,11 +27,11 @@ Pentru a rula acest proiect local, trebuie să ai instalate următoarele:
 Urmează acești pași pentru a configura și rula proiectul pe mașina ta locală:
 1.  **Clonează depozitul:**
     ```bash
-    git clone [git@git.bpay.md:testing/testing.git] #Folosește link-ul tău SSH
+    git clone git@git.bpay.md:testing/testing.git #Folosește link-ul tău SSH
        sau
-    git clone [https://git.bpay.md/testing/testing.git]   # Folosește link-ul tău HTTPS
+    git clone https://git.bpay.md/testing/testing.git   # Folosește link-ul tău HTTPS
     
-    cd {existing_repo} # Navighează în directorul proiectului
+    cd testing # Navighează în directorul proiectului
     ```
 2.  **Instalează dependențele proiectului:**
     ```bash
